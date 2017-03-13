@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C7F8206424BF9EA75A3CF65 /* Pods_SnapchatClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9573D6938389DFE585037EA8 /* Pods_SnapchatClone.framework */; };
+		C99D2B2D1E7760B100B0C617 /* Snap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99D2B2C1E7760B100B0C617 /* Snap.swift */; };
 		C9BF60871E760CEA00E49FE2 /* SnapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF60861E760CEA00E49FE2 /* SnapsViewController.swift */; };
 		C9BF60891E76105600E49FE2 /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF60881E76105600E49FE2 /* PictureViewController.swift */; };
 		C9BF608B1E761F9F00E49FE2 /* SelectUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF608A1E761F9F00E49FE2 /* SelectUserViewController.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		2D64BD409258BEE7C2848705 /* Pods-SnapchatClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapchatClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-SnapchatClone/Pods-SnapchatClone.release.xcconfig"; sourceTree = "<group>"; };
 		9573D6938389DFE585037EA8 /* Pods_SnapchatClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapchatClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C99D2B2C1E7760B100B0C617 /* Snap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snap.swift; sourceTree = "<group>"; };
 		C9BF60861E760CEA00E49FE2 /* SnapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapsViewController.swift; sourceTree = "<group>"; };
 		C9BF60881E76105600E49FE2 /* PictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
 		C9BF608A1E761F9F00E49FE2 /* SelectUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectUserViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				C9BF608C1E76298900E49FE2 /* User.swift */,
+				C99D2B2C1E7760B100B0C617 /* Snap.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				C9BF60891E76105600E49FE2 /* PictureViewController.swift in Sources */,
 				C9BF608D1E76298900E49FE2 /* User.swift in Sources */,
 				C9BF608B1E761F9F00E49FE2 /* SelectUserViewController.swift in Sources */,
+				C99D2B2D1E7760B100B0C617 /* Snap.swift in Sources */,
 				C9EA2C691E75F28200A0EB90 /* AppDelegate.swift in Sources */,
 				C9BF60871E760CEA00E49FE2 /* SnapsViewController.swift in Sources */,
 			);

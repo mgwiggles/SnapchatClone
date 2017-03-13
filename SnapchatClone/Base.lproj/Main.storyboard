@@ -78,7 +78,7 @@
         <!--Snaps View Controller-->
         <scene sceneID="0Np-DC-ecI">
             <objects>
-                <viewController id="iIe-J2-voq" customClass="SnapsViewController" customModule="SnapchatClone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="iIe-J2-voq" customClass="SnapsViewController" customModule="SnapchatClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Rm-6N-Rq2"/>
                         <viewControllerLayoutGuide type="bottom" id="wP9-Eo-NOU"/>
@@ -86,7 +86,19 @@
                     <view key="view" contentMode="scaleToFill" id="ADf-95-ea9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vdT-Kv-OTC">
+                                <rect key="frame" x="16" y="64" width="343" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vdT-Kv-OTC" firstAttribute="top" secondItem="0Rm-6N-Rq2" secondAttribute="bottom" id="1Mm-JI-n4c"/>
+                            <constraint firstItem="vdT-Kv-OTC" firstAttribute="leading" secondItem="ADf-95-ea9" secondAttribute="leadingMargin" id="4wA-9K-NtM"/>
+                            <constraint firstItem="vdT-Kv-OTC" firstAttribute="trailing" secondItem="ADf-95-ea9" secondAttribute="trailingMargin" id="q3T-Fe-1K0"/>
+                            <constraint firstItem="wP9-Eo-NOU" firstAttribute="top" secondItem="vdT-Kv-OTC" secondAttribute="bottom" id="vLL-jL-wbw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yHK-hp-xAb">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="Olj-tV-J7N">
@@ -100,6 +112,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="vdT-Kv-OTC" id="Pr4-Bl-vmO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DOJ-GB-WDM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
