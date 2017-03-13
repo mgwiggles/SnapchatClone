@@ -11,6 +11,7 @@
 		C9BF60871E760CEA00E49FE2 /* SnapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF60861E760CEA00E49FE2 /* SnapsViewController.swift */; };
 		C9BF60891E76105600E49FE2 /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF60881E76105600E49FE2 /* PictureViewController.swift */; };
 		C9BF608B1E761F9F00E49FE2 /* SelectUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF608A1E761F9F00E49FE2 /* SelectUserViewController.swift */; };
+		C9BF608D1E76298900E49FE2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF608C1E76298900E49FE2 /* User.swift */; };
 		C9EA2C691E75F28200A0EB90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EA2C681E75F28200A0EB90 /* AppDelegate.swift */; };
 		C9EA2C6B1E75F28200A0EB90 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EA2C6A1E75F28200A0EB90 /* SignInViewController.swift */; };
 		C9EA2C6E1E75F28200A0EB90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9EA2C6C1E75F28200A0EB90 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		C9BF60861E760CEA00E49FE2 /* SnapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapsViewController.swift; sourceTree = "<group>"; };
 		C9BF60881E76105600E49FE2 /* PictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
 		C9BF608A1E761F9F00E49FE2 /* SelectUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectUserViewController.swift; sourceTree = "<group>"; };
+		C9BF608C1E76298900E49FE2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C9EA2C651E75F28200A0EB90 /* SnapchatClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapchatClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9EA2C681E75F28200A0EB90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9EA2C6A1E75F28200A0EB90 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C9BF608E1E7629A900E49FE2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C9EA2C6A1E75F28200A0EB90 /* SignInViewController.swift */,
+				C9BF60861E760CEA00E49FE2 /* SnapsViewController.swift */,
+				C9BF60881E76105600E49FE2 /* PictureViewController.swift */,
+				C9BF608A1E761F9F00E49FE2 /* SelectUserViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C9BF608F1E7629C100E49FE2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C9BF608C1E76298900E49FE2 /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		C9EA2C5C1E75F28100A0EB90 = {
 			isa = PBXGroup;
 			children = (
@@ -86,11 +107,9 @@
 		C9EA2C671E75F28200A0EB90 /* SnapchatClone */ = {
 			isa = PBXGroup;
 			children = (
+				C9BF608E1E7629A900E49FE2 /* ViewControllers */,
+				C9BF608F1E7629C100E49FE2 /* Models */,
 				C9EA2C681E75F28200A0EB90 /* AppDelegate.swift */,
-				C9EA2C6A1E75F28200A0EB90 /* SignInViewController.swift */,
-				C9BF60861E760CEA00E49FE2 /* SnapsViewController.swift */,
-				C9BF60881E76105600E49FE2 /* PictureViewController.swift */,
-				C9BF608A1E761F9F00E49FE2 /* SelectUserViewController.swift */,
 				C9EA2C6C1E75F28200A0EB90 /* Main.storyboard */,
 				C9EA2C6F1E75F28200A0EB90 /* Assets.xcassets */,
 				C9EA2C711E75F28200A0EB90 /* LaunchScreen.storyboard */,
@@ -227,6 +246,7 @@
 			files = (
 				C9EA2C6B1E75F28200A0EB90 /* SignInViewController.swift in Sources */,
 				C9BF60891E76105600E49FE2 /* PictureViewController.swift in Sources */,
+				C9BF608D1E76298900E49FE2 /* User.swift in Sources */,
 				C9BF608B1E761F9F00E49FE2 /* SelectUserViewController.swift in Sources */,
 				C9EA2C691E75F28200A0EB90 /* AppDelegate.swift in Sources */,
 				C9BF60871E760CEA00E49FE2 /* SnapsViewController.swift in Sources */,
