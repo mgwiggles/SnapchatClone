@@ -114,11 +114,54 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="vdT-Kv-OTC" id="Pr4-Bl-vmO"/>
+                        <segue destination="7MF-VC-BNP" kind="show" identifier="viewsnapsegue" id="V5Z-K4-8jG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DOJ-GB-WDM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1772" y="38.23088455772114"/>
+        </scene>
+        <!--View Snap View Controller-->
+        <scene sceneID="F3U-0H-Sjz">
+            <objects>
+                <viewController id="7MF-VC-BNP" customClass="ViewSnapViewController" customModule="SnapchatClone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="joX-j3-sx4"/>
+                        <viewControllerLayoutGuide type="bottom" id="k17-Po-ZPB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lh0-FO-aqP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is me saying hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tie-ug-kGY">
+                                <rect key="frame" x="21" y="636" width="333" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3KY-w6-4H9">
+                                <rect key="frame" x="26" y="74" width="323" height="552"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="k17-Po-ZPB" firstAttribute="top" secondItem="Tie-ug-kGY" secondAttribute="bottom" constant="10" id="H6p-cS-kUX"/>
+                            <constraint firstItem="3KY-w6-4H9" firstAttribute="top" secondItem="joX-j3-sx4" secondAttribute="bottom" constant="10" id="H7t-L0-B61"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3KY-w6-4H9" secondAttribute="trailing" constant="10" id="OmJ-9d-Gnk"/>
+                            <constraint firstItem="Tie-ug-kGY" firstAttribute="top" secondItem="3KY-w6-4H9" secondAttribute="bottom" constant="10" id="eW1-nX-re5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tie-ug-kGY" secondAttribute="trailing" constant="5" id="nVv-FR-AmG"/>
+                            <constraint firstItem="3KY-w6-4H9" firstAttribute="leading" secondItem="Lh0-FO-aqP" secondAttribute="leadingMargin" constant="10" id="prS-aG-Bp0"/>
+                            <constraint firstItem="Tie-ug-kGY" firstAttribute="leading" secondItem="Lh0-FO-aqP" secondAttribute="leadingMargin" constant="5" id="w8y-SL-GQR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="3KY-w6-4H9" id="DRf-2c-uh3"/>
+                        <outlet property="label" destination="Tie-ug-kGY" id="T0y-FA-HtM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YP6-XY-C5l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1772" y="740"/>
         </scene>
         <!--Picture View Controller-->
         <scene sceneID="NdC-2T-ct4">
