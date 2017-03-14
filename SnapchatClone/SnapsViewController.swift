@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class SnapsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     var snaps : [Snap] = []
     
     @IBOutlet weak var tableView: UITableView!
@@ -20,12 +20,13 @@ class SnapsViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         tableView.dataSource = self
         tableView.delegate = self
-
+        
         FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("snaps").observe(FIRDataEventType.childAdded, with: {(snapshot) in
             print(snapshot)
             let snapshotURL = snapshot.childSnapshot(forPath: "imageURL")
             let snapshotFrom = snapshot.childSnapshot(forPath: "from")
             let snapshotDescrip = snapshot.childSnapshot(forPath: "description")
+            let snapshotUUID = snapshot.childSnapshot(forPath: "uuid")
             
             /* Had to come up with some clever string manipulation to get emails displayed properly.
              Probably a better way to do it, but this works
@@ -35,12 +36,14 @@ class SnapsViewController: UIViewController, UITableViewDataSource, UITableViewD
             let fullURL = "\(snapshotURL)"
             let fullFrom = "\(snapshotFrom)"
             let fullDescrip = "\(snapshotDescrip)"
+            let fullUUID="\(snapshotUUID)"
             
             snap.imageURL = fullURL.replacingOccurrences(of: "Snap (imageURL) ", with: "")
             snap.from = fullFrom.replacingOccurrences(of: "Snap (from) ", with: "")
             snap.descrip = fullDescrip.replacingOccurrences(of: "Snap (description) ", with: "")
             snap.key = snapshot.key
-        
+            snap.uuid = fullUUID.replacingOccurrences(of: "Snap (uuid) ", with: "")
+            
             
             self.snaps.append(snap)
             self.tableView.reloadData()
@@ -49,43 +52,46 @@ class SnapsViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("snaps").observe(FIRDataEventType.childRemoved, with: {(snapshot) in
             print(snapshot)
-            let snapshotURL = snapshot.childSnapshot(forPath: "imageURL")
-            let snapshotFrom = snapshot.childSnapshot(forPath: "from")
-            let snapshotDescrip = snapshot.childSnapshot(forPath: "description")
             
-            /* Had to come up with some clever string manipulation to get emails displayed properly.
-             Probably a better way to do it, but this works
-             */
+            var index = 0
             
-            let snap = Snap()
-            let fullURL = "\(snapshotURL)"
-            let fullFrom = "\(snapshotFrom)"
-            let fullDescrip = "\(snapshotDescrip)"
+            for snap in self.snaps {
+                if snap.key == snapshot.key {
+                    self.snaps.remove(at: index)
+                }
+                index += 1
+            }
             
-            snap.imageURL = fullURL.replacingOccurrences(of: "Snap (imageURL) ", with: "")
-            snap.from = fullFrom.replacingOccurrences(of: "Snap (from) ", with: "")
-            snap.descrip = fullDescrip.replacingOccurrences(of: "Snap (description) ", with: "")
-            snap.key = snapshot.key
-            
-            
-            self.snaps.append(snap)
             self.tableView.reloadData()
             
         })
-
+        
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return snaps.count
+        if snaps.count == 0 {
+            return 1
+        } else {
+            
+            return snaps.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         
-        let snap = snaps[indexPath.row]
-        
-        cell.textLabel?.text = snap.from
+        if snaps.count == 0 {
+            
+            cell.textLabel?.text = "You have no snap 😔"
+            
+        } else {
+            
+            let snap = snaps[indexPath.row]
+            
+            cell.textLabel?.text = snap.from
+            
+        }
         
         return cell
     }
@@ -100,8 +106,8 @@ class SnapsViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         if segue.identifier == "viewsnapsegue" {
             
-        let nextVC = segue.destination as! ViewSnapViewController
-        nextVC.snap = sender as! Snap
+            let nextVC = segue.destination as! ViewSnapViewController
+            nextVC.snap = sender as! Snap
             
         }
     }

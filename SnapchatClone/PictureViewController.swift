@@ -19,18 +19,22 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     var imagePicker = UIImagePickerController()
     
+    var uuid = NSUUID().uuidString
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
         imagePicker.delegate = self
+        
+        nextButton.isEnabled = false
     }
 
     @IBAction func cameraTapped(_ sender: Any) {
         
 //        Change ".photolibrary" to ".camera" before porting to phone
-        imagePicker.sourceType = .photoLibrary
+        imagePicker.sourceType = .camera
         
         present(imagePicker, animated: true, completion: nil)
     
@@ -44,6 +48,8 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         imageView.image = image
         
         imageView.backgroundColor = UIColor.clear
+        
+        nextButton.isEnabled = true
         
         imagePicker.dismiss(animated: true, completion: nil)
         
@@ -59,7 +65,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         
         
-        imagesFolder.child("\(NSUUID().uuidString).jpg").put(imageData!, metadata: nil, completion: {(metadata, error) in
+        imagesFolder.child("\(uuid).jpg").put(imageData!, metadata: nil, completion: {(metadata, error) in
             print("We tried to upload")
             if error != nil {
                 print("we had an error \(error)")
@@ -80,6 +86,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         nextVC.imageURL = sender as! String
         nextVC.descrip = descriptionTextField.text!
+        nextVC.uuid = uuid
         
     }
 }
