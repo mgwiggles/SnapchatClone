@@ -39,12 +39,41 @@ class SnapsViewController: UIViewController, UITableViewDataSource, UITableViewD
             snap.imageURL = fullURL.replacingOccurrences(of: "Snap (imageURL) ", with: "")
             snap.from = fullFrom.replacingOccurrences(of: "Snap (from) ", with: "")
             snap.descrip = fullDescrip.replacingOccurrences(of: "Snap (description) ", with: "")
+            snap.key = snapshot.key
         
             
             self.snaps.append(snap)
             self.tableView.reloadData()
             
         })
+        
+        FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("snaps").observe(FIRDataEventType.childRemoved, with: {(snapshot) in
+            print(snapshot)
+            let snapshotURL = snapshot.childSnapshot(forPath: "imageURL")
+            let snapshotFrom = snapshot.childSnapshot(forPath: "from")
+            let snapshotDescrip = snapshot.childSnapshot(forPath: "description")
+            
+            /* Had to come up with some clever string manipulation to get emails displayed properly.
+             Probably a better way to do it, but this works
+             */
+            
+            let snap = Snap()
+            let fullURL = "\(snapshotURL)"
+            let fullFrom = "\(snapshotFrom)"
+            let fullDescrip = "\(snapshotDescrip)"
+            
+            snap.imageURL = fullURL.replacingOccurrences(of: "Snap (imageURL) ", with: "")
+            snap.from = fullFrom.replacingOccurrences(of: "Snap (from) ", with: "")
+            snap.descrip = fullDescrip.replacingOccurrences(of: "Snap (description) ", with: "")
+            snap.key = snapshot.key
+            
+            
+            self.snaps.append(snap)
+            self.tableView.reloadData()
+            
+        })
+
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
